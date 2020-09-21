@@ -2,7 +2,7 @@
   <div>
     <div class="frow">
       <div class="text-start shadow-light home-content">
-        <div>Trade of View your Portfolio</div>
+        <div>Trade or View your Portfolio</div>
         <div>You may Save & Load your Data</div>
         <div>Click on 'End Day' to begin a new Day</div>
         <br>
