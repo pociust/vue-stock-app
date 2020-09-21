@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="frow">
     <div>name: {{ title }} </div>
+    <button>click me</button>
   </div>
 </template>
 
