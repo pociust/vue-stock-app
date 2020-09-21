@@ -1,17 +1,21 @@
 <template>
   <div class="frow">
     <div>name: {{ this.$store.state.title }} </div>
-    <button>click me</button>
+    <NavigationBar></NavigationBar>
   </div>
 </template>
 
 <script>
+  import NavigationBar from './components/NavigationBar.vue';
   export default {
+    components: {
+      NavigationBar
+    }
   }
 </script>
 
 <style scoped>
-  div {
+  /* div {
     color: red;
-  }
+  } */
 </style>
