@@ -1,9 +1,17 @@
 import Home from './components/pages/Home.vue';
-import NavBar from './components/NavigationBar.vue';
+import Portfolio from './components/pages/Portfolio.vue';
 
 export const routes = [
-  { path: '', components: {
-    default: Home,
-    'NavBar': NavBar
-  } } 
+  { 
+    path: '', 
+    components: {
+      default: Home,
+    }
+  },
+  {
+   path: '/portfolio',
+   components: {
+     default: Portfolio,
+   } 
+  } 
 ]
