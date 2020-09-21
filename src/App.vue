@@ -14,6 +14,8 @@
 <style scoped>
   .title {
     font-size: 2em;
+    background-color: #3700b3;
+    color: white
   }
   div {
     font-family: 'Roboto', sans-serif;

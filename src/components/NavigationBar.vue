@@ -23,7 +23,7 @@
 
 <style scoped>
   .nav-bar {
-    width: 30%;
+    width: 40%;
   }
   .nav-background {
     background-color: #6200EE;
