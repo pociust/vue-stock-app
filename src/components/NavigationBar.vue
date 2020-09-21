@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="frow row-between">
+    <div class="frow row-between nav-background">
       <div class="frow row-around nav-bar">
         <div>Stock Tracker</div>
         <div>Portfolio</div>
@@ -23,6 +23,11 @@
 
 <style scoped>
   .nav-bar {
-    width: 40%;
+    width: 30%;
+  }
+  .nav-background {
+    background-color: #6200EE;
+    color: white;
+    padding: 10px;
   }
 </style>
