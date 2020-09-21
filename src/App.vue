@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="frow title">name: {{ this.$store.state.title }} </div>
+    <div class="frow title">{{ this.$store.state.title }} </div>
     <NavigationBar></NavigationBar>
     <router-view></router-view>
   </div>
@@ -23,7 +23,8 @@
   .title {
     font-size: 2em;
     background-color: #3700b3;
-    color: white
+    color: white;
+    padding: 5px;
   }
 
 </style>
