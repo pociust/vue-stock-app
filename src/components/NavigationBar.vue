@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div>
-      <div class="left-side-nav">
+    <div class="frow row-between">
+      <div class="frow row-around nav-bar">
         <div>Stock Tracker</div>
         <div>Portfolio</div>
         <div>Stocks</div>
       </div>
-      <div class="right-side-nav">
+      <div class="frow row-around nav-bar">
         <div>End Day</div>
         <div>Save & Load </div>
         <div>Funds: $10,000</div>
@@ -20,3 +20,9 @@
   
   }
 </script>
+
+<style scoped>
+  .nav-bar {
+    width: 40%;
+  }
+</style>
