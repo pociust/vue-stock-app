@@ -1,17 +1,12 @@
 <template>
   <div class="frow">
-    <div>name: {{ title }} </div>
+    <div>name: {{ this.$store.state.title }} </div>
     <button>click me</button>
   </div>
 </template>
 
 <script>
   export default {
-    data() {
-      return {
-        title: 'Vue Stock App'
-      }
-    }
   }
 </script>
 
