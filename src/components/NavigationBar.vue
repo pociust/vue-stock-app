@@ -30,4 +30,12 @@
     color: white;
     padding: 10px;
   }
+  .nav-bar div {
+    padding: 5px;
+    cursor: pointer;
+  }
+  .nav-bar div:hover {
+    background-color: #BB86FC;
+    border-radius: 5px;
+  }
 </style>
