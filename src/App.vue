@@ -1,22 +1,18 @@
 <template>
-  <div class="frow">
-    <div>name: {{ this.$store.state.title }} </div>
+  <div>
+    <div class="frow title">name: {{ this.$store.state.title }} </div>
+    <router-view name="NavBar"></router-view>
     <router-view></router-view>
-    <!-- <NavigationBar></NavigationBar> -->
   </div>
 </template>
 
 <script>
-  import NavigationBar from './components/NavigationBar.vue';
   export default {
-    components: {
-      NavigationBar
-    }
   }
 </script>
 
 <style scoped>
-  /* div {
-    color: red;
-  } */
+  .title {
+    font-size: 2em;
+  }
 </style>
