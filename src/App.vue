@@ -1,13 +1,17 @@
 <template>
   <div>
     <div class="frow title">name: {{ this.$store.state.title }} </div>
-    <router-view name="NavBar"></router-view>
+    <NavigationBar></NavigationBar>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+  import NavigationBar from './components/NavigationBar.vue';
   export default {
+    components: {
+      NavigationBar,
+    }
   }
 </script>
 
