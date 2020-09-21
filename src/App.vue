@@ -1,7 +1,8 @@
 <template>
   <div class="frow">
     <div>name: {{ this.$store.state.title }} </div>
-    <NavigationBar></NavigationBar>
+    <router-view></router-view>
+    <!-- <NavigationBar></NavigationBar> -->
   </div>
 </template>
 
