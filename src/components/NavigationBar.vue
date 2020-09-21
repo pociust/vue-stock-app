@@ -9,7 +9,7 @@
       <div class="frow row-around nav-bar">
         <div>End Day</div>
         <div>Save & Load </div>
-        <div>Funds: $10,000</div>
+        <span>Funds: $10,000</span>
       </div>
     </div>
   </div>
