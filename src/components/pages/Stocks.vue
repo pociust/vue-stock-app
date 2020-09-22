@@ -1,7 +1,7 @@
 <template>
   <div>
     <div>
-      
+      this is stocks page!
     </div>
   </div>
 </template>
