@@ -9,9 +9,18 @@
 <script>
   import NavigationBar from './components/NavigationBar.vue';
   export default {
-    components: {
-      NavigationBar,
-    }
+    created() {
+        this.$http.get('data.json')
+          .then(response => {
+            return response.json();
+          })
+          .then( data => {
+            console.log('data', data)
+          })
+      },
+      components: {
+        NavigationBar,
+      }
   }
 </script>
 
