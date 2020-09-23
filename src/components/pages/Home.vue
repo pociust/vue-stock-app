@@ -14,7 +14,7 @@
 
 <script>
   export default {
-  
+    
   }
 </script>
 
@@ -27,7 +27,7 @@
 }
 .home-content :first-child{
   font-weight: 800;
-  color: #03DAC5;
+  color: var(--secondary-color);
 }
 
 </style>
