@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
+import '../node_modules/frow/dist/frow.min.css'
 
 import App from './App.vue'
 
@@ -13,15 +14,16 @@ Vue.use(VueResource);
 Vue.http.options.root = 'https://vue-intro-firebase.firebaseio.com/';
 
 
+Vue.config.productionTip = false
+
 const router = new VueRouter({
   routes,
   mode: 'history'
 })
 
-
 new Vue({
   el: '#app',
   router,
   store,
-  render: h => h(App)
-});
+  render: h => h(App),
+}).$mount('#app')

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-  import StockCard from '../StockCard.vue';
+  // import StockCard from '../StockCard.vue';
   
   export default {
     data() {
@@ -45,7 +45,7 @@
         );
     },
     components: {
-      StockCard
+      // StockCard
     }
   
   }

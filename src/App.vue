@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="app">
     <div class="frow title">{{ this.$store.state.title }} </div>
     <NavigationBar></NavigationBar>
     <router-view></router-view>
@@ -9,6 +9,7 @@
 <script>
   import NavigationBar from './components/NavigationBar.vue';
   export default {
+    name: 'App',
     created() {
         this.$http.get('data.json')
           .then(response => {
