@@ -25,6 +25,17 @@
 </script>
 
 <style>
+  :root {
+    --green: #03DAC5;
+    --main-purple:  #6200EE;
+    --accent-purple: #3700b3;
+    --hover-purple: #BB86FC;
+
+    --primary-color: var(--main-purple);
+    --secondary-color: var(--green);
+    --accent-color: var(--accent-purple);
+    --hover-color: var(--hover-purple);
+  }
 
   body {
     font-family: 'Roboto', sans-serif;
