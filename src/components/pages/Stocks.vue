@@ -1,19 +1,18 @@
 <template>
   <div>
-    <div v-for="company in arrayOfCompaniesData" :key="company.name">
-      {{ company }}
+    <div v-for="company in arrayOfCompaniesData" :key="company.name">      
+      <StockCard :company="company"></StockCard>
     </div>
   </div>
 </template>
 
 <script>
-  // import StockCard from '../StockCard.vue';
+  import StockCard from '../StockCard.vue';
   
   export default {
     data() {
       return {
         arrayOfCompaniesData: [],
-        company: {},
       }
     },
       created() {
@@ -45,8 +44,8 @@
         );
     },
     components: {
-      // StockCard
-    }
+      StockCard
+    },
   
   }
 </script>
