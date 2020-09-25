@@ -28,6 +28,7 @@
 <style>
   :root {
     --green: #03DAC5;
+    --error: #C51162;
     --main-purple:  #6200EE;
     --accent-purple: #3700b3;
     --hover-purple: #BB86FC;
