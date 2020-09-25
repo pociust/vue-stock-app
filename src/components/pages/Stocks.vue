@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div v-for="company in arrayOfCompaniesData" :key="company.name">      
+  <div class="frow"> 
+    <div class="row-around shadow-light p-5 mt-15" v-for="company in arrayOfCompaniesData" :key="company.name">      
       <StockCard :company="company"></StockCard>
     </div>
   </div>
@@ -19,7 +19,6 @@
         let getStockData = (company) => {
           return new Promise( resolve => {
             resolve( company || {});
-            console.log('thisis a company' , company);
             this.arrayOfCompaniesData.push(company);
           })
          }
@@ -34,7 +33,7 @@
             })
             .then( data => {
               companyData = {
-                name: company,
+                symbol: company,
                 currentPrice: data.c,
                 openPrice: data.o,
               };

@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div>{{ companyName }} ({{ company.name }}) </div>
+  <div class="card">
+      {{ companyName }} ({{ company.symbol }})
   </div>
 </template>
 <script>
@@ -18,13 +18,13 @@
     computed: {
       companyName() {
         let companyName = ''
-        if (this.company.name === "MSFT") {
+        if (this.company.symbol === "MSFT") {
           companyName = "Microsoft";
-        } else if ( this.company.name === "GOOGL") {
+        } else if ( this.company.symbol === "GOOGL") {
           companyName = "Google"
-        } else if (this.company.name === "TSLA") {
+        } else if (this.company.symbol === "TSLA") {
           companyName = "Tesla"
-        } else if (this.company.name === "AAPL") {
+        } else if (this.company.symbol === "AAPL") {
           companyName = "Apple"
         }
 
@@ -34,4 +34,11 @@
     }
   }
 </script>
+
+<style scoped>
+  .card {
+    height: 10vh;
+    width: 15vw;
+  }
+</style>
 
