@@ -1,7 +1,12 @@
 <template>
-  <div class="card">
+  <div class="card text-center">
+    <div class="top-card">
       {{ companyName }} ({{ company.symbol }})
-  </div>
+    </div>
+    <div :style="{color: stockPriceColor}" class="bottom-card">
+      ({{ company.currentPrice }}) <span style="color: black">{{ company.openPrice }}</span>
+    </div>
+  </div>  
 </template>
 <script>
   export default {
@@ -30,8 +35,23 @@
 
         return companyName
         
-      }
-    }
+      },
+      stockPriceColor() {
+        console.log(this.company.currentPrice > this.company.openPrice)
+        let color = ''
+        if (this.company.currentPrice > this.company.openPrice) {
+          color = '#03DAC5'
+        }
+        else if (this.company.currentPrice < this.company.openPrice) {
+          color = '#C51162'
+        }
+        else {
+          color = 'black'
+        }
+        return color
+      },
+
+    },
   }
 </script>
 
@@ -40,5 +60,6 @@
     height: 10vh;
     width: 15vw;
   }
+
 </style>
 
