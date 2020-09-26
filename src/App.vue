@@ -37,6 +37,7 @@
     --secondary-color: var(--green);
     --accent-color: var(--accent-purple);
     --hover-color: var(--hover-purple);
+    --error-color: var(--error)
   }
 
   body {
@@ -44,7 +45,7 @@
   }
   .title {
     font-size: 2em;
-    background-color: #3700b3;
+    background-color: var(--accent-color);
     color: white;
     padding: 5px;
   }
