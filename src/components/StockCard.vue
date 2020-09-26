@@ -45,7 +45,6 @@
         
       },
       stockPriceColor() {
-        console.log(this.company.currentPrice > this.company.openPrice)
         let color = ''
         if (this.company.currentPrice > this.company.openPrice) {
           color = `var(--green)`
