@@ -21,6 +21,8 @@ const router = new VueRouter({
   mode: 'history'
 })
 
+export const stockBus = new Vue();
+
 new Vue({
   el: '#app',
   router,

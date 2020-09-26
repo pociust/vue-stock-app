@@ -8,20 +8,26 @@
 
 <script>
   import NavigationBar from './components/NavigationBar.vue';
+  import { stockBus } from './main.js';
   export default {
     name: 'App',
     created() {
-        this.$http.get('data.json')
-          .then(response => {
-            return response.json();
-          })
-          .then( data => {
-            console.log('data', data)
-          })
+      this.$http.get('data.json')
+        .then(response => {
+          return response.json();
+        })
+        .then( data => {
+          console.log('data', data)
+        });
+      stockBus.$on("stockPurchased", (stock) => {
+        console.log('fuck ya', stock)
+      }) 
+      
+
       },
       components: {
         NavigationBar,
-      }
+      },
   }
 </script>
 

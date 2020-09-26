@@ -13,6 +13,7 @@
   </div>  
 </template>
 <script>
+  import {stockBus} from '../main.js';
   export default {
     data () {
       return {
@@ -58,7 +59,12 @@
     },
     methods: {
       buyStock() {
-        console.log(this.companyName, this.company.currentPrice, this.numberOfStockPurchased)
+        let stockPurchased = {
+          company: this.companyName,
+          price: this.company.currentPrice,
+          amount: this.numberOfStockPurchased
+        };
+        stockBus.$emit('stockPurchased', stockPurchased);
       }
     }
   }
