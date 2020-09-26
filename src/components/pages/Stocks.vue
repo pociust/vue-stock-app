@@ -1,18 +1,20 @@
 <template>
   <div class="frow"> 
-    <div class="row-around shadow-light p-5 m-15" v-for="company in arrayOfCompaniesData" :key="company.name">      
-      <StockCard :company="company"></StockCard>
+    <div v-for="company in arrayOfCompaniesData" :key="company.name">      
+      <StockCard v-if="!purchaseError" :company="company" @stockPurchaseError="showError"></StockCard>
     </div>
+    <StockError v-if="purchaseError"></StockError>
   </div>
 </template>
 
 <script>
   import StockCard from '../StockCard.vue';
-  
+  import StockError from '../StockError.vue';
   export default {
     data() {
       return {
         arrayOfCompaniesData: [],
+        purchaseError: false,
       }
     },
       created() {
@@ -43,8 +45,15 @@
         );
     },
     components: {
-      StockCard
+      StockCard,
+      StockError
     },
+    methods: {
+      showError(error) {
+        this.purchaseError = error;
+        console.log('this is an error', error)
+      }
+    }
   
   }
 </script>
