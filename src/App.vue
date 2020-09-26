@@ -20,7 +20,7 @@
           console.log('data', data)
         });
       stockBus.$on("stockPurchased", (stock) => {
-        console.log('fuck ya', stock)
+        console.log('fuckya', stock)
       }) 
       
 
