@@ -1,16 +1,18 @@
 <template>
-  <div class="card frow centered-column">
-    <div class="top-card">
-      {{ companyName }} ({{ company.symbol }})
-    </div>
-    <div :style="{color: stockPriceColor}" class="middle-card mt-5">
-      ({{ company.currentPrice }}) <span style="color: black">open: {{ company.openPrice }}</span>
-    </div>
-    <div class="bottom-card frow row-around">
-      <input type="number" v-model="numberOfStockPurchased" placeholder="# stock">
-      <button class="mt-15" @click="buyStock">Buy</button>
-    </div>
-  </div>  
+  <div class="row-around shadow-light p-5 m-15">
+    <div class="card frow centered-column">
+      <div class="top-card">
+        {{ companyName }} ({{ company.symbol }})
+      </div>
+      <div :style="{color: stockPriceColor}" class="middle-card mt-5">
+        ({{ company.currentPrice }}) <span style="color: black">open: {{ company.openPrice }}</span>
+      </div>
+      <div class="bottom-card frow row-around">
+        <input type="number" v-model="numberOfStockPurchased" placeholder="# stock">
+        <button class="mt-15" @click="buyStock">Buy</button>
+      </div>
+    </div>  
+  </div>
 </template>
 <script>
   import {stockBus} from '../main.js';
@@ -64,7 +66,12 @@
           price: this.company.currentPrice,
           amount: this.numberOfStockPurchased
         };
-        stockBus.$emit('stockPurchased', stockPurchased);
+
+        if (this.$store.state.funds < (this.company.currentPrice * this.numberOfStockPurchased)) {
+          this.$emit('stockPurchaseError', true)
+        } else {
+          stockBus.$emit('stockPurchased', stockPurchased);
+        }
       }
     }
   }
