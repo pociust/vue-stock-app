@@ -51,6 +51,9 @@
     methods: {
       showError(error) {
         this.purchaseError = error;
+        setTimeout(() => {
+          this.purchaseError = false
+        },2000)
         console.log('this is an error', error)
       }
     }
