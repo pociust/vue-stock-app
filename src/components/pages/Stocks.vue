@@ -1,6 +1,6 @@
 <template>
   <div class="frow"> 
-    <div class="row-around shadow-light p-5 mt-15" v-for="company in arrayOfCompaniesData" :key="company.name">      
+    <div class="row-around shadow-light p-5 m-15" v-for="company in arrayOfCompaniesData" :key="company.name">      
       <StockCard :company="company"></StockCard>
     </div>
   </div>

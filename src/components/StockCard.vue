@@ -1,11 +1,12 @@
 <template>
-  <div class="card text-center">
+  <div class="card frow column-center">
     <div class="top-card">
       {{ companyName }} ({{ company.symbol }})
     </div>
     <div :style="{color: stockPriceColor}" class="bottom-card">
-      ({{ company.currentPrice }}) <span style="color: black">{{ company.openPrice }}</span>
+      ({{ company.currentPrice }}) <span style="color: black">open: {{ company.openPrice }}</span>
     </div>
+    <button class="mt-15">Purchase</button>
   </div>  
 </template>
 <script>
@@ -40,26 +41,38 @@
         console.log(this.company.currentPrice > this.company.openPrice)
         let color = ''
         if (this.company.currentPrice > this.company.openPrice) {
-          color = '#03DAC5'
+          color = `var(--green)`
         }
         else if (this.company.currentPrice < this.company.openPrice) {
-          color = '#C51162'
+          color = 'var(--error)'
         }
         else {
           color = 'black'
         }
         return color
       },
-
     },
   }
 </script>
 
 <style scoped>
   .card {
-    height: 10vh;
-    width: 15vw;
+    height: 90px;
+    width: 260px;
   }
+  
+  .bottom-card span {
+    font-size: 12px;
+  }
+
+  .card button {
+    background-color: var(--primary-color);
+    border: var(--primary-color);
+  }
+
+.card button:hover {
+  background-color: var(--hover-purple);
+}
 
 </style>
 
