@@ -1,12 +1,15 @@
 <template>
-  <div class="card frow column-center">
+  <div class="card frow centered-column">
     <div class="top-card">
       {{ companyName }} ({{ company.symbol }})
     </div>
-    <div :style="{color: stockPriceColor}" class="bottom-card">
+    <div :style="{color: stockPriceColor}" class="middle-card mt-5">
       ({{ company.currentPrice }}) <span style="color: black">open: {{ company.openPrice }}</span>
     </div>
-    <button class="mt-15">Purchase</button>
+    <div class="bottom-card frow row-around">
+      <input type="number" placeholder="# stock">
+      <button class="mt-15">Buy</button>
+    </div>
   </div>  
 </template>
 <script>
@@ -57,22 +60,33 @@
 
 <style scoped>
   .card {
-    height: 90px;
+    height: 100px;
     width: 260px;
   }
   
-  .bottom-card span {
+  .middle-card span {
     font-size: 12px;
   }
 
-  .card button {
-    background-color: var(--primary-color);
-    border: var(--primary-color);
+  .bottom-card {
+    width: 100%
   }
 
-.card button:hover {
-  background-color: var(--hover-purple);
-}
+  .card input {
+    width: 80px;
+  }
+
+  .card button {
+    height: 40px;
+    width: 50px;
+    background-color: var(--primary-color);
+    border: var(--primary-color);
+    border-radius: 20px;
+  }
+
+  .card button:hover {
+    background-color: var(--hover-purple);
+  }
 
 </style>
 
