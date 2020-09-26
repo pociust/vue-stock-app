@@ -7,8 +7,8 @@
       ({{ company.currentPrice }}) <span style="color: black">open: {{ company.openPrice }}</span>
     </div>
     <div class="bottom-card frow row-around">
-      <input type="number" placeholder="# stock">
-      <button class="mt-15">Buy</button>
+      <input type="number" v-model="numberOfStockPurchased" placeholder="# stock">
+      <button class="mt-15" @click="buyStock">Buy</button>
     </div>
   </div>  
 </template>
@@ -17,6 +17,7 @@
     data () {
       return {
         name: '',
+        numberOfStockPurchased: 0,
       }
     },
     props: {
@@ -55,6 +56,11 @@
         return color
       },
     },
+    methods: {
+      buyStock() {
+        console.log(this.companyName, this.company.currentPrice, this.numberOfStockPurchased)
+      }
+    }
   }
 </script>
 
