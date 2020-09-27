@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div v-for="stock in stocks" :key="stock.symbol">
+    <div v-for="stock in stocks" :key="stock.id">
       <div>
-        this is the portfolio page! {{ stock.symbol }}
+        this is the portfolio page! {{ stock.data.funds }}
       </div>
       
     </div>
@@ -23,8 +23,8 @@
         })
         .then( data => {
           const resultArray = [];
-          for(let symbol in data) {
-            resultArray.push(data[symbol]);
+          for(let id in data) {
+          resultArray.push({id: id, data: data[id]});
           }
           this.stocks = resultArray;
         })
