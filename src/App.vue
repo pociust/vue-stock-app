@@ -12,22 +12,26 @@
   export default {
     name: 'App',
     created() {
-      this.$http.get('data.json')
-        .then(response => {
-          return response.json();
-        })
-        .then( data => {
-          console.log('data', data)
-        });
       stockBus.$on("stockPurchased", (stock) => {
-        console.log('fuck ya', stock)
+        this.addStocksToPortfolio(stock)
       }) 
-      
-
-      },
-      components: {
-        NavigationBar,
-      },
+    },
+    components: {
+      NavigationBar,
+    },
+    methods: {
+      addStocksToPortfolio(stock) {
+        this.$store.state.funds = this.$store.state.funds - stock.price;
+        let portfolio = {
+          funds: this.$store.state.funds,
+          symbol: stock.companySymbol,
+          amount: stock.amount,
+          price: stock.price
+        }
+        this.$http.post('data.json', portfolio)
+        console.log(stock, portfolio)
+      }
+    }
   }
 </script>
 
