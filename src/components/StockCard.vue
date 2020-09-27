@@ -61,7 +61,7 @@
     methods: {
       buyStock() {
         let stockPurchased = {
-          company: this.companyName,
+          companySymbol: this.company.symbol,
           price: this.company.currentPrice,
           amount: this.numberOfStockPurchased
         };
