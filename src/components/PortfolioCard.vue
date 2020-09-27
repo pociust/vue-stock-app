@@ -1,17 +1,23 @@
 <template>
-  <div>hello</div>
+  <div>
+    {{ stockKey }}
+    <div v-for="info in stockInfo" :key="info.id">
+    {{ info.data }}
+    <!-- <div v-for="info in stockInfo[id]" :key="info">
+      {{ info }}
+    </div> -->
+    </div>
+  </div>
 </template>
 
 <script>
   export default {
-    // data() {
-    //   return {
-    //     stockInfo: 
-    //   }
-    // },
     props: {
       stockInfo: {
-        type: Object
+        type: Array
+      },
+      stockKey: {
+        type: String
       }
     }
   }
