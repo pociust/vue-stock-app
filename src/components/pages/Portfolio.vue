@@ -1,7 +1,7 @@
 <template>
   <div class="frow">
-    <div class="items-stretch shadow-dark m-20 p-10" v-for="(stock, key) in stocks" :key="stock.id">
-      <div class="col-md-1-4">
+    <div class="items-stretch shadow-dark p-5 m-5 col-md-1-5" v-for="(stock, key) in stocks" :key="stock.id">
+      <div class="">
         <PortfolioCard :stockInfo="stock" :stockKey="key"></PortfolioCard>
       </div>
     </div>
