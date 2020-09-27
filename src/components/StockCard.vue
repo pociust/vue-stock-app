@@ -72,7 +72,7 @@
             stockBus.$emit('stockPurchased', stockPurchased);
           }
         }
-      }
+      },
     }
   }
 </script>
