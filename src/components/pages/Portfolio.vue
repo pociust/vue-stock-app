@@ -1,9 +1,8 @@
 <template>
   <div class="frow">
-    <div class="items-stretch shadow-dark m-20 p-10" v-for="stock in stocks" :key="stock.id">
-      <div>{{ stock }} </div>
+    <div class="items-stretch shadow-dark m-20 p-10" v-for="(stock, key) in stocks" :key="stock.id">
       <div class="col-md-1-4">
-        <PortfolioCard :stockInfo="stock.data"></PortfolioCard>
+        <PortfolioCard :stockInfo="stock" :stockKey="key"></PortfolioCard>
       </div>
     </div>
   </div>
@@ -14,7 +13,7 @@
   export default {
     data() {
       return {
-        stocks: [],
+        stocks: {},
       }
     },
     components: {
