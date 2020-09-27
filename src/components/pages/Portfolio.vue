@@ -1,6 +1,6 @@
 <template>
   <div class="frow">
-    <div class="items-stretch shadow-dark p-5 m-5 col-md-1-5" v-for="(stock, key) in stocks" :key="stock.id">
+    <div class="items-stretch portfolio-key-shadow p-5 m-5 col-md-1-5" v-for="(stock, key) in stocks" :key="stock.id">
       <div class="">
         <PortfolioCard :stockInfo="stock" :stockKey="key"></PortfolioCard>
       </div>
@@ -62,3 +62,9 @@
   
   }
 </script>
+
+<style scoped>
+  .portfolio-key-shadow {
+    box-shadow: 0 1px 3px 0 var(--hover-purple);
+  }
+</style>
