@@ -65,11 +65,12 @@
           price: this.company.currentPrice,
           amount: this.numberOfStockPurchased
         };
-
-        if (this.$store.state.funds < (this.company.currentPrice * this.numberOfStockPurchased)) {
-          this.$emit('stockPurchaseError', true)
-        } else {
-          stockBus.$emit('stockPurchased', stockPurchased);
+        if(this.numberOfStockPurchased > 0){
+          if (this.$store.state.funds < (this.company.currentPrice * this.numberOfStockPurchased)) {
+            this.$emit('stockPurchaseError', true)
+          } else {
+            stockBus.$emit('stockPurchased', stockPurchased);
+          }
         }
       }
     }
