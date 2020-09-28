@@ -9,12 +9,20 @@ export const store = new Vuex.Store({
     funds: 10000
   },
   getters: {
+    funds: state => {
+      return state.funds;
+    }
 
   },
   mutations: {
+    sellStock: (state, payload) => {
+      state.funds = state.funds + payload;
 
+    }
   },
   actions: {
-
+    sellStock: ({ commit }, payload) => {
+      commit('sellStock', payload);
+    }
   },
 })
