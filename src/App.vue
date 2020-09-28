@@ -12,6 +12,7 @@
   export default {
     name: 'App',
     created() {
+        
       stockBus.$on("stockPurchased", (stock) => {
         this.addStocksToPortfolio(stock)
       }) 
@@ -21,7 +22,8 @@
     },
     methods: {
       addStocksToPortfolio(stock) {
-        this.$store.state.funds = this.$store.state.funds - stock.price;
+        this.$store.dispatch('changeFunds', -Math.abs(stock.price));
+        
         let portfolio = {
           funds: this.$store.state.funds,
           symbol: stock.companySymbol,
