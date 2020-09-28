@@ -29,7 +29,6 @@
           price: stock.price
         }
         this.$http.post('data.json', portfolio)
-        console.log(stock, portfolio)
       }
     }
   }
