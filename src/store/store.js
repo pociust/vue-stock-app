@@ -15,14 +15,13 @@ export const store = new Vuex.Store({
 
   },
   mutations: {
-    sellStock: (state, payload) => {
+    changeFunds: (state, payload) => {
       state.funds = state.funds + payload;
-
     }
   },
   actions: {
-    sellStock: ({ commit }, payload) => {
-      commit('sellStock', payload);
-    }
+    changeFunds: ({ commit }, payload) => {
+      commit('changeFunds', parseFloat(payload.toFixed(2)));
+    },
   },
 })
