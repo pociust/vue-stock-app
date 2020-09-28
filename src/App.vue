@@ -22,7 +22,7 @@
     },
     methods: {
       addStocksToPortfolio(stock) {
-        this.$store.dispatch('changeFunds', -Math.abs(stock.price));
+        this.$store.dispatch('changeFunds', -Math.abs(stock.price * stock.amount));
         
         let portfolio = {
           funds: this.$store.state.funds,
