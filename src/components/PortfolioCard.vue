@@ -7,19 +7,30 @@
       <div class="frow items-center">
       {{ info.data.amount }} {{ info.data.amount > 1 ? `shares` : `share` }} at ${{ info.data.price }}
       </div>
-      <div class="sell-button">Sell</div>
+      <div class="sell-button" @click="sellStock(info)">Sell</div>
     </div>
   </div>
 </template>
 
 <script>
+  // import { mapActions } from 'vuex';
   export default {
+    data() {
+      return{
+      }
+    },
     props: {
       stockInfo: {
         type: Array
       },
       stockKey: {
         type: String
+      }
+    },
+    methods: {
+      sellStock(stock) {
+        let sellPrice = (stock.data.amount) * (stock.data.price)
+        this.$store.dispatch('sellStock', sellPrice)
       }
     }
   }
