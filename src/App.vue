@@ -11,11 +11,22 @@
   import { stockBus } from './main.js';
   export default {
     name: 'App',
+    data() {
+      return {
+        funds: this.$store.state.funds,
+      }
+    },
     created() {
-        
       stockBus.$on("stockPurchased", (stock) => {
         this.addStocksToPortfolio(stock)
-      }) 
+      });
+      this.$http.get('funds.json')
+        .then(data => {
+          return data.json()
+        })
+        .then(funds => {
+          this.$store.state.funds ? funds : 10000;
+        })
     },
     components: {
       NavigationBar,
@@ -31,6 +42,11 @@
           price: stock.price
         }
         this.$http.post('data.json', portfolio)
+      }
+    },
+    watch: {
+      funds(newValue) {
+        console.log('watching', newValue)
       }
     }
   }
