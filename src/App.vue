@@ -44,11 +44,6 @@
         this.$http.post('data.json', portfolio)
       }
     },
-    watch: {
-      funds(newValue) {
-        console.log('watching', newValue)
-      }
-    }
   }
 </script>
 
