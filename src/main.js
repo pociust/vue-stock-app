@@ -23,6 +23,12 @@ const router = new VueRouter({
 
 export const stockBus = new Vue();
 
+store.subscribe((mutation, state) => {
+  if (mutation.type === 'changeFunds') {
+    Vue.http.put('https://vue-intro-firebase.firebaseio.com/funds.json', state.funds)
+  }
+})
+
 new Vue({
   el: '#app',
   router,
