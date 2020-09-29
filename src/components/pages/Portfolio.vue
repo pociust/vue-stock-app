@@ -58,8 +58,7 @@
           this.stocks = resultObject;
 
         })
-    }
-  
+    },
   }
 </script>
 
