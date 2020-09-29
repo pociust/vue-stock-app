@@ -25,14 +25,19 @@
       },
       stockKey: {
         type: String
-      }
+      },
     },
     methods: {
       sellStock(stock) {
-        let sellPrice = (stock.data.amount) * (stock.data.price)
-        this.$store.dispatch('sellStock', sellPrice)
-      }
-    }
+        let sellPrice = (stock.data.amount) * (stock.data.price);
+        this.$store.dispatch('changeFunds', sellPrice);
+        this.$http.delete(`data/${stock.id}.json`)
+        .then(response => {
+          console.log(response)
+          this.stockInfo.pop(stock)
+        });
+      },
+    },
   }
 </script>
 <style scoped>
