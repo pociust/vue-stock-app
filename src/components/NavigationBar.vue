@@ -9,7 +9,7 @@
       <div class="frow row-around nav-bar">
         <div>End Day</div>
         <div>Save & Load </div>
-        <span>Funds: ${{ this.$store.state.funds}} </span>
+        <span>Funds: {{ this.$store.state.funds | moneyFilter }} </span>
       </div>
     </div>
   </div>
