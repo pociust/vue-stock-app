@@ -5,7 +5,7 @@
         {{ companyName }} ({{ company.symbol }})
       </div>
       <div :style="{color: stockPriceColor}" class="middle-card mt-5">
-        ({{ company.currentPrice }}) <span style="color: black">open: {{ company.openPrice }}</span>
+        ({{ company.currentPrice  | moneyFilter}}) <span style="color: black">open: {{ company.openPrice | moneyFilter}}</span>
       </div>
       <div class="bottom-card frow row-around">
         <input type="number" v-model="numberOfStockPurchased" placeholder="# stock">
