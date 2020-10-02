@@ -25,7 +25,7 @@
           return data.json()
         })
         .then(funds => {
-          this.$store.state.funds ? funds : 10000;
+          this.$store.state.funds = funds || 10000.00
         })
     },
     components: {
