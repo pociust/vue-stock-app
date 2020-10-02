@@ -6,7 +6,7 @@ Vue.use(Vuex);
 export const store = new Vuex.Store({
   state: {
     title: 'Vue Stock App',
-    funds: 10000
+    funds: null
   },
   getters: {
     funds: state => {
