@@ -3,42 +3,48 @@
     <div class="portfolio-card-key">
       {{ stockKey }}
     </div>
-    <div class="shadow-light p-5 m-5 frow justify-around" v-for="info in stockInfo" :key="info.id">
+    <div
+      v-for="info in stockInfo"
+      :key="info.id"
+      class="shadow-light p-5 m-5 frow justify-around"
+    >
       <div class="frow items-center">
-      {{ info.data.amount }} {{ info.data.amount > 1 ? `shares` : `share` }} at ${{ info.data.price }}
+        {{ info.data.amount }} {{ info.data.amount > 1 ?
+          `shares` :
+          `share` }} at ${{ info.data.price }}
       </div>
-      <div class="sell-button" @click="sellStock(info)">Sell</div>
+      <div
+        class="sell-button"
+        @click="sellStock(info)"
+      >
+        Sell
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-  // import { mapActions } from 'vuex';
-  export default {
-    data() {
-      return{
-      }
-    },
-    props: {
-      stockInfo: {
-        type: Array
-      },
-      stockKey: {
-        type: String
-      },
-    },
-    methods: {
-      sellStock(stock) {
-        let sellPrice = (stock.data.amount) * (stock.data.price);
-        this.$store.dispatch('changeFunds', sellPrice);
-        this.$http.delete(`data/${stock.id}.json`)
-        .then(response => {
-          console.log(response)
-          this.stockInfo.pop(stock)
+// import { mapActions } from 'vuex';
+export default {
+  props: {
+    stockInfo: { type: Array, default: null },
+    stockKey: { type: String, default: '' },
+  },
+  data() {
+    return {};
+  },
+  methods: {
+    sellStock(stock) {
+      let sellPrice = (stock.data.amount) * (stock.data.price);
+      this.$store.dispatch('changeFunds', sellPrice);
+      this.$http.delete(`data/${stock.id}.json`)
+        .then((response) => {
+          console.log(response);
+          this.stockInfo.pop(stock);
         });
-      },
     },
-  }
+  },
+};
 </script>
 <style scoped>
   .portfolio-card-key {

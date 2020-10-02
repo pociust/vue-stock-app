@@ -1,50 +1,48 @@
 <template>
   <div id="app">
-    <div class="frow title">{{ this.$store.state.title }} </div>
-    <NavigationBar></NavigationBar>
-    <router-view></router-view>
+    <div class="frow title">
+      {{ this.$store.state.title }}
+    </div>
+    <NavigationBar />
+    <router-view />
   </div>
 </template>
 
 <script>
-  import NavigationBar from './components/NavigationBar.vue';
-  import { stockBus } from './main.js';
-  export default {
-    name: 'App',
-    data() {
-      return {
-        funds: this.$store.state.funds,
-      }
-    },
-    created() {
-      stockBus.$on("stockPurchased", (stock) => {
-        this.addStocksToPortfolio(stock)
+import NavigationBar from './components/NavigationBar.vue';
+import { stockBus } from './main.js';
+export default {
+  name: 'App',
+  components: { NavigationBar },
+  data() {
+    return { funds: this.$store.state.funds };
+  },
+  created() {
+    stockBus.$on('stockPurchased', (stock) => {
+      this.addStocksToPortfolio(stock);
+    });
+    this.$http.get('funds.json')
+      .then((data) => {
+        return data.json();
+      })
+      .then((funds) => {
+        this.$store.state.funds = funds || 10000.00;
       });
-      this.$http.get('funds.json')
-        .then(data => {
-          return data.json()
-        })
-        .then(funds => {
-          this.$store.state.funds = funds || 10000.00
-        })
+  },
+  methods: {
+    addStocksToPortfolio(stock) {
+      this.$store.dispatch('changeFunds', -Math.abs(stock.price * stock.amount));
+
+      let portfolio = {
+        funds: this.$store.state.funds,
+        symbol: stock.companySymbol,
+        amount: stock.amount,
+        price: stock.price,
+      };
+      this.$http.post('data.json', portfolio);
     },
-    components: {
-      NavigationBar,
-    },
-    methods: {
-      addStocksToPortfolio(stock) {
-        this.$store.dispatch('changeFunds', -Math.abs(stock.price * stock.amount));
-        
-        let portfolio = {
-          funds: this.$store.state.funds,
-          symbol: stock.companySymbol,
-          amount: stock.amount,
-          price: stock.price
-        }
-        this.$http.post('data.json', portfolio)
-      }
-    },
-  }
+  },
+};
 </script>
 
 <style>

@@ -4,77 +4,87 @@
       <div class="top-card">
         {{ companyName }} ({{ company.symbol }})
       </div>
-      <div :style="{color: stockPriceColor}" class="middle-card mt-5">
-        ({{ company.currentPrice  | moneyFilter}}) <span style="color: black">open: {{ company.openPrice | moneyFilter}}</span>
+      <div
+        :style="{color: stockPriceColor}"
+        class="middle-card mt-5"
+      >
+        ({{ company.currentPrice | moneyFilter }})
+        <span style="color: black">
+          open: {{ company.openPrice | moneyFilter }}
+        </span>
       </div>
       <div class="bottom-card frow row-around">
-        <input type="number" v-model="numberOfStockPurchased" placeholder="# stock">
-        <button class="mt-15" @click="buyStock">Buy</button>
+        <input
+          v-model="numberOfStockPurchased"
+          type="number"
+          placeholder="# stock"
+        >
+        <button
+          class="mt-15"
+          @click="buyStock"
+        >
+          Buy
+        </button>
       </div>
-    </div>  
+    </div>
   </div>
 </template>
 <script>
-  import {stockBus} from '../main.js';
-  export default {
-    data () {
-      return {
-        name: '',
-        numberOfStockPurchased: 0,
+import { stockBus } from '../main.js';
+export default {
+  props: { company: { type: Object, default: null } },
+  data() {
+    return {
+      name: '',
+      numberOfStockPurchased: 0,
+    };
+  },
+  computed: {
+    companyName() {
+      let companyName = '';
+      if (this.company.symbol === 'MSFT') {
+        companyName = 'Microsoft';
+      } else if (this.company.symbol === 'GOOGL') {
+        companyName = 'Google';
+      } else if (this.company.symbol === 'TSLA') {
+        companyName = 'Tesla';
+      } else if (this.company.symbol === 'AAPL') {
+        companyName = 'Apple';
       }
-    },
-    props: {
-      company: {
-        type: Object,
-      }
-    },
-    computed: {
-      companyName() {
-        let companyName = ''
-        if (this.company.symbol === "MSFT") {
-          companyName = "Microsoft";
-        } else if ( this.company.symbol === "GOOGL") {
-          companyName = "Google"
-        } else if (this.company.symbol === "TSLA") {
-          companyName = "Tesla"
-        } else if (this.company.symbol === "AAPL") {
-          companyName = "Apple"
-        }
 
-        return companyName
-        
-      },
-      stockPriceColor() {
-        let color = ''
-        if (this.company.currentPrice > this.company.openPrice) {
-          color = `var(--green)`
-        }
-        else if (this.company.currentPrice < this.company.openPrice) {
-          color = 'var(--error)'
-        }
-        else {
-          color = 'black'
-        }
-        return color
-      },
+      return companyName;
     },
-    methods: {
-      buyStock() {
-        let stockPurchased = {
-          companySymbol: this.company.symbol,
-          price: this.company.currentPrice,
-          amount: this.numberOfStockPurchased
-        };
-        if(this.numberOfStockPurchased > 0){
-          if (this.$store.state.funds < (this.company.currentPrice * this.numberOfStockPurchased)) {
-            this.$emit('stockPurchaseError', true)
-          } else {
-            stockBus.$emit('stockPurchased', stockPurchased);
-          }
+    stockPriceColor() {
+      let color = '';
+      if (this.company.currentPrice > this.company.openPrice) {
+        color = 'var(--green)';
+      }
+      else if (this.company.currentPrice < this.company.openPrice) {
+        color = 'var(--error)';
+      }
+      else {
+        color = 'black';
+      }
+      return color;
+    },
+  },
+  methods: {
+    buyStock() {
+      let stockPurchased = {
+        companySymbol: this.company.symbol,
+        price: this.company.currentPrice,
+        amount: this.numberOfStockPurchased,
+      };
+      if (this.numberOfStockPurchased > 0){
+        if (this.$store.state.funds < (this.company.currentPrice * this.numberOfStockPurchased)) {
+          this.$emit('stockPurchaseError', true);
+        } else {
+          stockBus.$emit('stockPurchased', stockPurchased);
         }
-      },
-    }
-  }
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -82,7 +92,7 @@
     height: 100px;
     width: 260px;
   }
-  
+
   .middle-card span {
     font-size: 12px;
   }
@@ -108,4 +118,3 @@
   }
 
 </style>
-

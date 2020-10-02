@@ -6,16 +6,14 @@
         <div>You may Save & Load your Data</div>
         <div>Click on 'End Day' to begin a new Day</div>
         <br>
-        <div>Your Funds: <span>{{ this.$store.state.funds | moneyFilter}}</span> </div>
+        <div>Your Funds: <span>{{ this.$store.state.funds | moneyFilter }}</span> </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  export default {
-    
-  }
+export default {};
 </script>
 
 <style scoped>
@@ -31,4 +29,3 @@
 }
 
 </style>
- 

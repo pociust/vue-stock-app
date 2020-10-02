@@ -2,9 +2,24 @@
   <div>
     <div class="frow row-between nav-background">
       <div class="frow row-around nav-bar">
-        <router-link tag="div" to="/">Stock Tracker</router-link>
-        <router-link tag="div" to="Portfolio">Portfolio</router-link>
-        <router-link tag="div" to="Stocks">Stocks</router-link>
+        <router-link
+          tag="div"
+          to="/"
+        >
+          Stock Tracker
+        </router-link>
+        <router-link
+          tag="div"
+          to="Portfolio"
+        >
+          Portfolio
+        </router-link>
+        <router-link
+          tag="div"
+          to="Stocks"
+        >
+          Stocks
+        </router-link>
       </div>
       <div class="frow row-around nav-bar">
         <div>End Day</div>
@@ -14,12 +29,6 @@
     </div>
   </div>
 </template>
-
-<script>
-  export default {
-  
-  }
-</script>
 
 <style scoped>
   .nav-bar {
