@@ -3,14 +3,12 @@
     <div
       v-for="(stock, key) in stocks"
       :key="stock.id"
-      class="items-stretch portfolio-key-shadow p-5 m-5 col-md-1-5"
+      class="portfolio-key-shadow p-5 m-5 col-md-1-5"
     >
-      <div class="">
-        <PortfolioCard
-          :stock-info="stock"
-          :stock-key="key"
-        />
-      </div>
+      <PortfolioCard
+        :stock-info="stock"
+        :stock-key="key"
+      />
     </div>
   </div>
 </template>
