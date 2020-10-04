@@ -4,7 +4,9 @@
       {{ this.$store.state.title }}
     </div>
     <NavigationBar />
-    <router-view />
+    <transition name="fade">
+      <router-view />
+    </transition>
   </div>
 </template>
 
@@ -68,6 +70,14 @@ export default {
     background-color: var(--accent-color);
     color: white;
     padding: 5px;
+  }
+
+  .fade-enter {
+    opacity: 0;
+  }
+  .fade-enter-to {
+    transition: opacity 4s;
+    opacity: 1;
   }
 
 </style>
