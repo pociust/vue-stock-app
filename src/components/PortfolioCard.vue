@@ -1,5 +1,5 @@
 <template>
-  <div class="portfolio-card text-center">
+  <div class="text-center">
     <div class="portfolio-card-key">
       {{ stockKey }}
     </div>
@@ -24,7 +24,6 @@
 </template>
 
 <script>
-// import { mapActions } from 'vuex';
 export default {
   props: {
     stockInfo: { type: Array, default: null },
