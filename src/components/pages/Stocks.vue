@@ -17,6 +17,7 @@
 <script>
 import StockCard from '../StockCard.vue';
 import StockError from '../StockError.vue';
+import { stockApi } from '../../store/stockApi.js';
 export default {
   components: {
     StockCard,
@@ -29,33 +30,13 @@ export default {
     };
   },
   created() {
-    let getStockData = (company) => {
-      return new Promise((resolve) => {
-        resolve(company || {});
-        this.arrayOfCompaniesData.push(company);
-      });
-    };
-
     let companies = ['MSFT', 'AAPL', 'GOOGL', 'TSLA'];
-    let companyData = {};
-
-    companies.forEach((company) =>
-      this.$http.get(
-        `https://finnhub.io/api/v1/quote?symbol=${company}&token=${process.env.VUE_APP_API_KEY}`,
-      )
+    companies.forEach((company) => {
+      stockApi(company)
         .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          companyData = {
-            symbol: company,
-            currentPrice: data.c,
-            openPrice: data.o,
-          };
-
-          return getStockData(companyData);
-        }),
-    );
+          this.arrayOfCompaniesData.push(response);
+        });
+    });
   },
   methods: {
     showError(error) {
