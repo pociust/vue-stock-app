@@ -28,6 +28,7 @@ export default {
   props: {
     stockInfo: { type: Array, default: null },
     stockKey: { type: String, default: '' },
+    currentPrice: { type: Object, default: null },
   },
   data() {
     return {};
