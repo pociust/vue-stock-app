@@ -2,7 +2,9 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import VueResource from 'vue-resource';
 import '../node_modules/frow/dist/frow.min.css';
+
 import './utils/moneyFilter.js';
+import './utils/companyNameFIlter.js';
 
 import App from './App.vue';
 

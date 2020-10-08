@@ -2,7 +2,7 @@
   <div class="row-around shadow-light p-5 m-15">
     <div class="card frow centered-column">
       <div class="top-card">
-        {{ companyName }} ({{ company.symbol }})
+        {{ company.symbol | companyNameFilter }} ({{ company.symbol }})
       </div>
       <div
         :style="{color: stockPriceColor}"
@@ -40,20 +40,20 @@ export default {
     };
   },
   computed: {
-    companyName() {
-      let companyName = '';
-      if (this.company.symbol === 'MSFT') {
-        companyName = 'Microsoft';
-      } else if (this.company.symbol === 'GOOGL') {
-        companyName = 'Google';
-      } else if (this.company.symbol === 'TSLA') {
-        companyName = 'Tesla';
-      } else if (this.company.symbol === 'AAPL') {
-        companyName = 'Apple';
-      }
+  //   companyName() {
+  //     let companyName = '';
+  //     if (this.company.symbol === 'MSFT') {
+  //       companyName = 'Microsoft';
+  //     } else if (this.company.symbol === 'GOOGL') {
+  //       companyName = 'Google';
+  //     } else if (this.company.symbol === 'TSLA') {
+  //       companyName = 'Tesla';
+  //     } else if (this.company.symbol === 'AAPL') {
+  //       companyName = 'Apple';
+  //     }
 
-      return companyName;
-    },
+    //     return companyName;
+    //   },
     stockPriceColor() {
       let color = '';
       if (this.company.currentPrice > this.company.openPrice) {
