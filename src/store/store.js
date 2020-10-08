@@ -21,7 +21,6 @@ export const store = new Vuex.Store({
   },
   actions: {
     changeFunds: ({ commit }, payload) => {
-      // need to only show 2 decimal places
       commit('changeFunds', payload);
     },
   },
