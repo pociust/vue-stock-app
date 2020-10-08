@@ -3,6 +3,7 @@
     <div class="frow title">
       {{ this.$store.state.title }}
     </div>
+    <Marquee />
     <NavigationBar />
     <transition name="fade">
       <router-view />
@@ -12,10 +13,11 @@
 
 <script>
 import NavigationBar from '@/components/NavigationBar.vue';
+import Marquee from '@/components/Marquee.vue';
 import { stockBus } from '@/main.js';
 export default {
   name: 'App',
-  components: { NavigationBar },
+  components: { NavigationBar, Marquee },
   data() {
     return { funds: this.$store.state.funds };
   },
