@@ -27,12 +27,9 @@ export default {
     stockKey: { type: String, default: '' },
     currentPrice: { type: Object, default: null },
   },
-  data() {
-    return {};
-  },
   methods: {
     sellStock(stock) {
-      let sellPrice = (stock.data.amount) * (stock.data.price);
+      let sellPrice = (stock.data.amount) * (this.currentPrice[stock.data.symbol]);
       this.$store.dispatch('changeFunds', sellPrice);
       this.$http.delete(`data/${stock.id}.json`)
         .then((response) => {
