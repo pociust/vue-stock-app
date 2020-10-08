@@ -15,9 +15,9 @@
 </template>
 
 <script>
-import StockCard from '../StockCard.vue';
-import StockError from '../StockError.vue';
-import { stockApi } from '../../store/stockApi.js';
+import StockCard from '@/components/pages/stocks/StockCard.vue';
+import StockError from '@/components/pages/stocks/StockError.vue';
+import { stockApi } from '@/store/stockApi';
 export default {
   components: {
     StockCard,

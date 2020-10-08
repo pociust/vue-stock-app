@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import NavigationBar from './components/NavigationBar.vue';
-import { stockBus } from './main.js';
+import NavigationBar from '@/components/NavigationBar.vue';
+import { stockBus } from '@/main.js';
 export default {
   name: 'App',
   components: { NavigationBar },

@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import PortfolioCard from '../PortfolioCard.vue';
+import PortfolioCard from '@/components/pages/portfolio/PortfolioCard.vue';
 import { stockApi } from '@/store/stockApi.js';
 export default {
   components: { PortfolioCard },

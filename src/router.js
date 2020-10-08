@@ -1,6 +1,6 @@
-import Home from './components/pages/Home.vue';
-import Portfolio from './components/pages/Portfolio.vue';
-import Stocks from './components/pages/Stocks.vue';
+import Home from '@/components/pages/Home.vue';
+import Portfolio from '@/components/pages/portfolio/Portfolio.vue';
+import Stocks from '@/components/pages/stocks/Stocks.vue';
 
 export const routes = [
   {

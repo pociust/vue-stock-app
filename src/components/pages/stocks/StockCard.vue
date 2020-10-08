@@ -30,7 +30,7 @@
   </div>
 </template>
 <script>
-import { stockBus } from '../main.js';
+import { stockBus } from '@/main.js';
 export default {
   props: { company: { type: Object, default: null } },
   data() {
