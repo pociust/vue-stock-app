@@ -1,5 +1,5 @@
 <template>
-  <div class="frow">
+  <div class="frow mt-10">
     <div
       v-for="(stock, key) in stockPortfolio"
       v-show="stock.length > 0"
