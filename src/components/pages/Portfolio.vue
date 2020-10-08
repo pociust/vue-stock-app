@@ -2,9 +2,13 @@
   <div class="frow">
     <div
       v-for="(stock, key) in stockPortfolio"
+      v-show="stock.length > 0"
       :key="stock.id"
-      class="portfolio-key-shadow p-5 m-5 col-md-1-5"
+      class="portfolio-key-shadow p-5 m-5 col-md-1-5 text-center"
     >
+      <div class="portfolio-card-key">
+        {{ key | companyNameFilter }} {{ currentStockInfo[key] }}
+      </div>
       <PortfolioCard
         :stock-info="stock"
         :stock-key="key"
@@ -57,10 +61,10 @@ export default {
             }
           }
           resultObject = {
-            tesla: teslaArray,
-            microsoft: microsoftArray,
-            apple: appleArray,
-            google: googleArray,
+            TSLA: teslaArray,
+            MSFT: microsoftArray,
+            AAPL: appleArray,
+            GOOGL: googleArray,
           };
 
           this.stockPortfolio = resultObject;
@@ -76,11 +80,15 @@ export default {
       });
     },
   },
+
 };
 </script>
 
 <style scoped>
   .portfolio-key-shadow {
     box-shadow: 0 1px 3px 0 var(--hover-purple);
+  }
+   .portfolio-card-key {
+    font-size: 50px;
   }
 </style>
