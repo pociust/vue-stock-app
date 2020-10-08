@@ -6,8 +6,9 @@
       :key="stock.id"
       class="portfolio-key-shadow p-5 m-5 col-md-1-5 text-center"
     >
-      <div class="portfolio-card-key">
-        {{ key | companyNameFilter }} {{ currentStockInfo[key] }}
+      <div>
+        <span class="portfolio-card-key"> {{ key | companyNameFilter }}</span>
+        <span> ({{ currentStockInfo[key] }}) </span>
       </div>
       <PortfolioCard
         :stock-info="stock"
