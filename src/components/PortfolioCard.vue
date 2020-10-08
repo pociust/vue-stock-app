@@ -1,8 +1,5 @@
 <template>
-  <div class="text-center">
-    <div class="portfolio-card-key">
-      {{ stockKey }}
-    </div>
+  <div>
     <div
       v-for="info in stockInfo"
       :key="info.id"
@@ -47,9 +44,6 @@ export default {
 };
 </script>
 <style scoped>
-  .portfolio-card-key {
-    font-size: 50px;
-  }
 
   .sell-button {
     padding: 5px;
