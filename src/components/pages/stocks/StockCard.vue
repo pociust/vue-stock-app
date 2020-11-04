@@ -55,7 +55,6 @@ export default {
     //     return companyName;
     //   },
     stockPriceColor() {
-      console.log('hello')
       let color = '';
       if (this.company.currentPrice > this.company.openPrice) {
         color = 'var(--green)';
